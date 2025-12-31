@@ -1,5 +1,4 @@
 import { pgTable, text, timestamp, pgEnum } from "drizzle-orm/pg-core";
-
 export const ticketStatusEnum = pgEnum("ticket_status", [
   "OPEN",
   "IN_PROGRESS",
@@ -11,7 +10,6 @@ export const ticketPriorityEnum = pgEnum("ticket_priority", [
   "MEDIUM",
   "HIGH",
 ]);
-
 export const ticket = pgTable("ticket", {
   id: text("id").primaryKey(),
   title: text("title").notNull(),
