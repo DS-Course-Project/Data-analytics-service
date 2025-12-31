@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2022",  // or latest ES version you need
-    "module": "nodenext",          // Key change: modern Node ESM/CJS interop
-    "moduleResolution": "nodenext", // Key change: strict Node-style resolution
+    "target": "es2022",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "outDir": "build",
@@ -10,6 +10,14 @@
     "strictNullChecks": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "declaration": true
+    "declaration": true,
+    "isolatedModules": true,
+    "skipLibCheck": true
   },
+  "include": [
+    "lib",
+    "tests",
+    "server.ts",
+    "scripts"
+  ]
 }

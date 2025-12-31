@@ -7,6 +7,7 @@ const router = Router();
 
 // Dashboard Summary Data
 router.get("/overview", requireRole("ADMIN"), analyticsController.getOverview);
+router.get("/stats/overview", requireRole("ADMIN"), analyticsController.getStatsOverview);
 router.get("/distribution", requireRole("ADMIN"), analyticsController.getDistribution);
 router.get("/trends", requireRole("ADMIN"), analyticsController.getTrends);
 

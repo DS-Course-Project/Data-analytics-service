@@ -15,6 +15,13 @@
       "when": 1767186375513,
       "tag": "0001_salty_madame_masque",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1767205950397,
+      "tag": "0002_aberrant_kylun",
+      "breakpoints": true
     }
   ]
 }
