@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { analyticsController } from "../controllers/analytics.controller.js";
-import { exportService } from "../services/export.service.js";
-import { requireRole } from "../middleware/rbac.js";
+import { analyticsController } from "../controllers/analytics.controller";
+import { exportService } from "../services/export.service";
+import { requireRole } from "../middleware/rbac";
 
 const router = Router();
 
@@ -19,26 +19,26 @@ router.get("/sla", requireRole("ADMIN"), analyticsController.getSLAMetrics);
 
 // Data Export
 router.get("/export/csv", requireRole("ADMIN"), async (req, res) => {
-    try {
-        const csv = await exportService.generateCSV();
-        res.setHeader("Content-Type", "text/csv");
-        res.setHeader("Content-Disposition", "attachment; filename=tickets_report.csv");
-        res.send(csv);
-    } catch (error) {
-        res.status(500).json({ error: "Failed to export CSV" });
-    }
+  try {
+    const csv = await exportService.generateCSV();
+    res.setHeader("Content-Type", "text/csv");
+    res.setHeader("Content-Disposition", "attachment; filename=tickets_report.csv");
+    res.send(csv);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to export CSV" });
+  }
 });
 
 router.get("/export/pdf", requireRole("ADMIN"), async (req, res) => {
-    try {
-        res.setHeader("Content-Type", "application/pdf");
-        res.setHeader("Content-Disposition", "attachment; filename=tickets_report.pdf");
-        await exportService.generatePDF(res);
-    } catch (error) {
-        if (!res.headersSent) {
-            res.status(500).json({ error: "Failed to export PDF" });
-        }
+  try {
+    res.setHeader("Content-Type", "application/pdf");
+    res.setHeader("Content-Disposition", "attachment; filename=tickets_report.pdf");
+    await exportService.generatePDF(res);
+  } catch (error) {
+    if (!res.headersSent) {
+      res.status(500).json({ error: "Failed to export PDF" });
     }
+  }
 });
 
 export const analyticsRoutes: Router = router;

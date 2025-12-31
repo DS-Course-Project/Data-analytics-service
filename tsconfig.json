@@ -5,7 +5,6 @@
     "moduleResolution": "nodenext", // Key change: strict Node-style resolution
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "lib": ["es2022", "dom"],
     "outDir": "build",
     "strict": true,
     "strictNullChecks": true,

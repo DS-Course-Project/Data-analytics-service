@@ -1,11 +1,11 @@
 import express from "express";
 import cors from "cors";
-import { analyticsRoutes } from "./lib/routes/analytics.routes.js";
-import { extractUser } from "./lib/middleware/rbac.js";
+import { analyticsRoutes } from "./lib/routes/analytics.routes";
+import { extractUser } from "./lib/middleware/rbac";
 
 const app = express();
 app.use(express.json()); // Support JSON bodies
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3004;
 
 app.use(cors());
 
